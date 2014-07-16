@@ -38,7 +38,7 @@
 		</section>
 		
 		<footer>
-			<p>All rights reserved. &copy;Jesús Chicano <img src="" alt="twitter"><a href=""></a></img>. Developed in 2014. Spain.</p>
+			<p>All rights reserved. Jesús Chicano&copy; <img src="" alt="twitter"><a href=""></a></img>. Developed in 2014. Spain.</p>
 		</footer>
 	</div>
 </body>
