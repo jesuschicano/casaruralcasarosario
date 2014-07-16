@@ -7,6 +7,9 @@
 	<title>Casa Rosario</title>
 	<!-- bootstrap -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-- style -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Petit+Formal+Script' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div id="wrapper" class="container-fluid">
@@ -15,7 +18,7 @@
 				<h1 class="text-left">casa rural 'casa rosario'</h1>
 			</div>
 			<nav class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-8 col-sm-offset-1 hidden-xs">
-				<ul class="nav nav-pills" role="tablist">
+				<ul class="nav nav-pills nav-custom" role="tablist">
 					<li class="active"><a href="index.php">Inicio</a></li>
 					<li><a href="./galeria">Galería</a></li>
 					<li><a href="./reservas">Reservas</a></li>
@@ -28,7 +31,7 @@
 				<button class="btn dropdown-toggle" id="dropmenu" data-toggle="dropdown">
 					Menú <span class="caret"></span>
 				</button>
-				<ul class="dropdown-menu" aria-labelledby="dropmenu">
+				<ul class="dropdown-menu" aria-labelledby="dropmenu" id="menu2">
 					<li class="active"><a href="index.php">Inicio</a></li>
 					<li><a href="./galeria">Galería</a></li>
 					<li><a href="./reservas">Reservas</a></li>
@@ -48,17 +51,17 @@
 		</header>
 
 		<section class="col-lg-10 col-lg-offset-1">
-			<div class="col-lg-4">
-				<img src="" alt="thumbnail">
+			<div class="col-lg-4 col-md-2 hidden-xs">
+				<img class="img-responsive img-rounded" src="./img/01.jpg" alt="thumbnail">
 			</div>
-			<div class="col-lg-8">
+			<div class="col-lg-8 col-md-10 col-xs-12">
 				<h2>Una forma diferente de acercarse al corazón de Andalucía</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla laborum repellat molestiae quibusdam in perferendis, itaque officia iure a perspiciatis consequuntur error consectetur sunt voluptas, velit magnam quaerat, vel odio!</p>
 			</div>
 		</section>
 		
-		<footer class="navbar-fixed-bottom">
-			<p>All rights reserved. Jesús Chicano&copy; <img src="" alt="twitter"><a href=""></a></img>. Developed in 2014. Spain.</p>
+		<footer class="navbar-fixed-bottom hidden-xs">
+			<p>All rights reserved &copy; Casa Rosario. Developed in 2014 by Jesús Chicano <img src="" alt="twitter"><a href=""></a></img>.</p>
 		</footer>
 	</div>
 
