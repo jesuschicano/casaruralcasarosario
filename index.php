@@ -9,39 +9,55 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
 <body>
-	<div id="wrapper">
-		<header>
-			<div id="portada">
-				<h1>casa rural 'casa rosario'</h1>
+	<div id="wrapper" class="container-fluid">
+		<header class="row">
+			<div id="portada" class="col-lg-12 hidden-xs">
+				<h1 class="text-left">casa rural 'casa rosario'</h1>
 			</div>
-			<nav>
-				<ul>
-					<li><a href="">title1</a></li>
-					<li><a href="">title2</a></li>
-					<li><a href="">title3</a></li>
-					<li><a href="">title4</a></li>
-					<li><a href="">title5</a></li>
+			<nav class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-8 col-sm-offset-1 hidden-xs">
+				<ul class="nav nav-pills" role="tablist">
+					<li class="active"><a href="index.php">Inicio</a></li>
+					<li><a href="./galeria">Galería</a></li>
+					<li><a href="./reservas">Reservas</a></li>
+					<li><a href="./como-llegar">Cómo llegar</a></li>
+					<li><a href="./contacto">Contacto</a></li>
 				</ul>
 			</nav>
-			<div id="logueo">
+			<!-- visible collapse -->
+			<nav class="dropdown visible-xs">
+				<button class="btn dropdown-toggle" id="dropmenu" data-toggle="dropdown">
+					Menú <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropmenu">
+					<li class="active"><a href="index.php">Inicio</a></li>
+					<li><a href="./galeria">Galería</a></li>
+					<li><a href="./reservas">Reservas</a></li>
+					<li><a href="./como-llegar">Cómo llegar</a></li>
+					<li><a href="./contacto">Contacto</a></li>
+				</ul>
+			</nav>
+			<!-- end visible collapse -->
+			<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12" id="logueo">
 				<?php
 					// llamada a la función de logueo
 					// sino hay usuario: muestra formulario. Si lo hay: muestra 'hola felipe'
 					//
-
+					echo "hola";
 				?>
 			</div>
 		</header>
 
-		<section>
-			<div><img src="" alt=""></div>
-			<div>
+		<section class="row container-fluid">
+			<div class="col-lg-4">
+				<img src="" alt="thumbnail">
+			</div>
+			<div class="col-lg-8">
 				<h2>Una forma diferente de acercarse al corazón de Andalucía</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla laborum repellat molestiae quibusdam in perferendis, itaque officia iure a perspiciatis consequuntur error consectetur sunt voluptas, velit magnam quaerat, vel odio!</p>
 			</div>
 		</section>
 		
-		<footer>
+		<footer class="navbar-fixed-bottom">
 			<p>All rights reserved. Jesús Chicano&copy; <img src="" alt="twitter"><a href=""></a></img>. Developed in 2014. Spain.</p>
 		</footer>
 	</div>
