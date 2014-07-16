@@ -11,7 +11,7 @@
 <body>
 	<div id="wrapper" class="container-fluid">
 		<header class="row">
-			<div id="portada" class="col-lg-12 hidden-xs">
+			<div id="portada" class="col-lg-10 col-lg-offset-1 hidden-xs">
 				<h1 class="text-left">casa rural 'casa rosario'</h1>
 			</div>
 			<nav class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-8 col-sm-offset-1 hidden-xs">
@@ -47,7 +47,7 @@
 			</div>
 		</header>
 
-		<section class="row container-fluid">
+		<section class="col-lg-10 col-lg-offset-1">
 			<div class="col-lg-4">
 				<img src="" alt="thumbnail">
 			</div>
