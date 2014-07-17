@@ -45,7 +45,7 @@
 					// llamada a la función de logueo
 					// sino hay usuario: muestra formulario. Si lo hay: muestra 'hola felipe'
 					//
-					echo "hola";
+					
 				?>
 			</div>
 		</header>
@@ -56,7 +56,7 @@
 			</div>
 			<div class="col-lg-8 col-md-10 col-xs-12">
 				<h2>Una forma diferente de acercarse al corazón de Andalucía</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla laborum repellat molestiae quibusdam in perferendis, itaque officia iure a perspiciatis consequuntur error consectetur sunt voluptas, velit magnam quaerat, vel odio!</p>
+				<p>Situada en pleno centro geográfico de la Comunidad andaluza, Casa Rosario ofrece una nueva forma de conocer y hacer turismo por Andalucía. Teniendo capitales provinciales como Córdoba, Málaga, Jaén o Sevilla a una hora aproximadamente en coche.</p>
 			</div>
 		</section>
 		
