@@ -51,10 +51,11 @@
 		</header>
 
 		<section class="col-lg-10 col-lg-offset-1">
-			<div class="col-md-6">
-				<p>Situada entre la urbanización La Camila y la pedanía de Jauja, Casa Rosario</p>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<p>Situada entre la urbanización La Camila y la pedanía de Jauja, Casa Rosario se haya aproximadamente a una hora de capitales de provincia como: Córdoba, Sevilla, Málaga, Granada y Jaén.</p>
+				<img src="../img/mapa1.jpg" class="img-responsive img-rounded">
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 col-sm-6 col-xs-12">
 				<img src="" alt="">
 			</div>
 		</section>
