@@ -40,9 +40,23 @@ header{margin-bottom: 15px;}
 	}
 }
 
+.galeria-thumb{
+	height: 100%;
+	margin-bottom: 30px;
+	&:hover{
+		transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+		-moz-transform: scale(1.2);
+		-ms-transform: scale(1.2);
+		transition: all 0.75s;
+	}
+}
+
 footer{
+	clear: both;
 	background: #444;
 	color: #aaa;
 	text-align: center;
-	p{padding-top: 10px;}
+	p{padding-top: 10px;
+		img{width: 22px;}}
 }

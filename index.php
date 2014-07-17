@@ -61,7 +61,7 @@
 		</section>
 		
 		<footer class="navbar-fixed-bottom hidden-xs">
-			<p>All rights reserved &copy; Casa Rosario. Developed in 2014 by Jesús Chicano <img src="" alt="twitter"><a href=""></a></img>.</p>
+			<p>All rights reserved &copy; Casa Rosario. Developed in 2014 by Jesús Chicano <a href="http://twitter.com/jesuschicano"><img src="./img/tweet.png" /></a></p>
 		</footer>
 	</div>
 
