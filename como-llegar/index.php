@@ -56,7 +56,7 @@
 				<img src="../img/mapa1.jpg" class="img-responsive img-rounded">
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
-				<img src="" alt="">
+				<img src="../img/mapa2.png" class="img-responsive">
 			</div>
 		</section>
 		

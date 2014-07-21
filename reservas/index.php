@@ -1,3 +1,7 @@
+<?php
+@session_start();
+include('conexion.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,8 +22,8 @@
 			<div id="portada" class="col-lg-10 col-lg-offset-1 hidden-xs">
 				<h1 class="text-left">casa rural 'casa rosario'</h1>
 			</div>
-			<nav class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-8 col-sm-offset-1 hidden-xs">
-				<ul class="nav nav-pills nav-custom" role="tablist">
+			<nav class="col-lg-7 col-md-6 col-sm-8 hidden-xs">
+				<ul class="nav nav-pills nav-custom pull-right" role="tablist">
 					<li><a href="../index.php">Inicio</a></li>
 					<li><a href="../galeria">Galería</a></li>
 					<li class="active"><a href="index.php">Reservas</a></li>
@@ -41,19 +45,37 @@
 				</ul>
 			</nav>
 			<!-- end visible collapse -->
-			<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12" id="logueo">
+			<div class="col-lg-5 col-md-6 col-sm-3 col-xs-12" id="logueo">
 				<?php
 					// llamada a la función de logueo
 					// sino hay usuario: muestra formulario. Si lo hay: muestra 'hola felipe'
 					//
-					
+					if(!isset($_SESSION["perfil"])){
+						//sino está declarada la sesion mostramos el formulario
+						//
+						// formulario start
+						echo '<form action="" class="form-inline" role="form">
+								<input type="text" class="form-control" placeholder="Usuario">
+								<input type="password" class="form-control" placeholder="Contraseña">
+								<button type="submit" class="btn btn-default">Entrar</button>
+							</form>';
+						// forlumario end
+					}else{
+						//en el caso de que esté, muestra mensaje
+						echo '<div class="text-success">Bienvenido <strong>Felipe</strong></div>';
+					}
 				?>
 			</div>
 		</header>
 
 		<section class="col-lg-10 col-lg-offset-1">
-			<div id="calendar" class="col-md-9 col-sm-7 col-xs-12">**Los días marcados en rojo están ocupados.</div>
-			<div class="col-md-3 col-sm-5 col-xs-12"></div>
+			<div id="calendar" class="col-md-9 col-sm-7 col-xs-12">
+				*Alojamiento hasta 10 personas.<br />
+				**Los días marcados en rojo están ocupados.
+			</div>
+			<div class="col-md-3 col-sm-5 col-xs-12">
+				
+			</div>
 		</section>
 		
 		<footer class="navbar-fixed-bottom hidden-xs">
