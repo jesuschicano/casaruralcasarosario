@@ -1,6 +1,7 @@
 <?php
 @session_start();
-include('conexion.php');
+include('../loginusuario.php');
+include('reservas.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,6 +15,7 @@ include('conexion.php');
 	<link rel="stylesheet" type="text/css" href="../css/fullcalendar.css">
 	<!-- style -->
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.css">
 	<link href='http://fonts.googleapis.com/css?family=Petit+Formal+Script' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -22,7 +24,7 @@ include('conexion.php');
 			<div id="portada" class="col-lg-10 col-lg-offset-1 hidden-xs">
 				<h1 class="text-left">casa rural 'casa rosario'</h1>
 			</div>
-			<nav class="col-lg-7 col-md-6 col-sm-8 hidden-xs">
+			<nav class="col-lg-6 col-md-6 col-sm-8 hidden-xs">
 				<ul class="nav nav-pills nav-custom pull-right" role="tablist">
 					<li><a href="../index.php">Inicio</a></li>
 					<li><a href="../galeria">Galería</a></li>
@@ -45,7 +47,7 @@ include('conexion.php');
 				</ul>
 			</nav>
 			<!-- end visible collapse -->
-			<div class="col-lg-5 col-md-6 col-sm-3 col-xs-12" id="logueo">
+			<div class="col-lg-6 col-md-6 col-sm-3 col-xs-12" id="logueo">
 				<?php
 					// llamada a la función de logueo
 					// sino hay usuario: muestra formulario. Si lo hay: muestra 'hola felipe'
@@ -54,15 +56,15 @@ include('conexion.php');
 						//sino está declarada la sesion mostramos el formulario
 						//
 						// formulario start
-						echo '<form action="" class="form-inline" role="form">
-								<input type="text" class="form-control" placeholder="Usuario">
-								<input type="password" class="form-control" placeholder="Contraseña">
-								<button type="submit" class="btn btn-default">Entrar</button>
+						echo '<form action="" method="POST" class="form-inline" role="form">
+								<input type="text" class="form-control" placeholder="Usuario" name="user" required>
+								<input type="password" class="form-control" placeholder="Contraseña" name="pass" required>
+								<button type="submit" class="btn btn-default" name="btn-entrar">Entrar</button>
 							</form>';
 						// forlumario end
 					}else{
 						//en el caso de que esté, muestra mensaje
-						echo '<div class="text-success">Bienvenido <strong>Felipe</strong></div>';
+						echo '<div class="text-success">Bienvenido <strong>Felipe</strong>. <a href="../cerrar.php">Cerrar sesión</a></div>';
 					}
 				?>
 			</div>
@@ -74,7 +76,40 @@ include('conexion.php');
 				**Los días marcados en rojo están ocupados.
 			</div>
 			<div class="col-md-3 col-sm-5 col-xs-12">
-				
+				<?php
+				if(isset($_SESSION['perfil'])){
+					echo '
+					<!-- reserva -->
+					<div id="reserva">
+						<label>Días de reserva:</label>
+						<div class="input-group">
+							<input id="from" placeholder="Desde" name="from">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</div>
+						<div class="input-group">
+							<input id="to" placeholder="Hasta" name="to">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</div>
+						<button class="btn center-block btn-reservar ">Reservar</button>
+					</div>
+					<!-- end reserva -->
+					<!-- libera -->
+					<div id="libera">
+						<label>Liberar días:</label>
+						<div class="input-group">
+							<input id="from2" placeholder="Desde" name="from2">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</div>
+						<div class="input-group">
+							<input id="to2" placeholder="Hasta" name="to2">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</div>
+						<button class="btn center-block btn-liberar ">Liberar</button>
+					</div>
+					<!-- end libera -->
+					';
+				}
+				?>
 			</div>
 		</section>
 		
@@ -85,6 +120,8 @@ include('conexion.php');
 
 	<!-- jquery -->
 	<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+	<!-- jquery ui -->
+	<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
 	<!-- bootstrap js -->
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<!-- calendar js -->
@@ -99,6 +136,42 @@ include('conexion.php');
 				// put your options and callbacks here
 				lang: 'es',
 				height: 400
+			});
+
+			// datepicker forms
+			//
+			$( "#from" ).datepicker({
+				changeMonth: true,
+				changeYear: true,
+				numberOfMonths: 1,
+				onClose: function( selectedDate ) {
+					$( "#to" ).datepicker( "option", "minDate", selectedDate );
+				}
+			});
+			$( "#to" ).datepicker({
+				changeMonth: true,
+				changeYear: true,
+				numberOfMonths: 1,
+				onClose: function( selectedDate ) {
+					$( "#from" ).datepicker( "option", "maxDate", selectedDate );
+				}
+			});
+			//same for the second block
+			$( "#from2" ).datepicker({
+				changeMonth: true,
+				changeYear: true,
+				numberOfMonths: 1,
+				onClose: function( selectedDate ) {
+					$( "#to2" ).datepicker( "option", "minDate", selectedDate );
+				}
+			});
+			$( "#to2" ).datepicker({
+				changeMonth: true,
+				changeYear: true,
+				numberOfMonths: 1,
+				onClose: function( selectedDate ) {
+					$( "#from2" ).datepicker( "option", "maxDate", selectedDate );
+				}
 			});
 		});
 	</script>

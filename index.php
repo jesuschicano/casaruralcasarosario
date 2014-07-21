@@ -1,3 +1,7 @@
+<?php
+@session_start();
+include('loginusuario.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,8 +21,8 @@
 			<div id="portada" class="col-lg-10 col-lg-offset-1 hidden-xs">
 				<h1 class="text-left">casa rural 'casa rosario'</h1>
 			</div>
-			<nav class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-8 col-sm-offset-1 hidden-xs">
-				<ul class="nav nav-pills nav-custom" role="tablist">
+			<nav class="col-lg-6 col-md-6 col-sm-8 hidden-xs">
+				<ul class="nav nav-pills nav-custom pull-right" role="tablist">
 					<li class="active"><a href="index.php">Inicio</a></li>
 					<li><a href="./galeria">Galería</a></li>
 					<li><a href="./reservas">Reservas</a></li>
@@ -40,12 +44,26 @@
 				</ul>
 			</nav>
 			<!-- end visible collapse -->
-			<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12" id="logueo">
+			<div class="col-lg-6 col-md-6 col-sm-3 col-xs-12" id="logueo">
 				<?php
 					// llamada a la función de logueo
 					// sino hay usuario: muestra formulario. Si lo hay: muestra 'hola felipe'
 					//
-					
+					if(!isset($_SESSION["perfil"])){
+						//sino está declarada la sesion mostramos el formulario
+						//
+						// formulario start
+						echo '<form action="" method="POST" class="form-inline" role="form">
+								<input type="text" class="form-control" placeholder="Usuario" name="user" required>
+								<input type="password" class="form-control" placeholder="Contraseña" name="pass" required>
+								<button type="submit" class="btn btn-default" name="btn-entrar">Entrar</button>
+							</form>';
+						// forlumario end
+					}else{
+						//en el caso de que esté, muestra mensaje
+						if($_SESSION["perfil"] == true)
+							echo '<div class="text-success">Bienvenido <strong>Felipe</strong>. <a href="cerrar.php">Cerrar sesión</a></div>';
+					}
 				?>
 			</div>
 		</header>
