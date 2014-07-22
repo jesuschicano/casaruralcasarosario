@@ -2,6 +2,7 @@
 @session_start();
 include('../loginusuario.php');
 include('reservas.php');
+include('actureservas.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -81,6 +82,7 @@ include('reservas.php');
 					echo '
 					<!-- reserva -->
 					<div id="reserva">
+						<form method="POST" action="">
 						<label>Días de reserva:</label>
 						<div class="input-group">
 							<input id="from" placeholder="Desde" name="from">
@@ -90,7 +92,8 @@ include('reservas.php');
 							<input id="to" placeholder="Hasta" name="to">
 							<span class="glyphicon glyphicon-calendar"></span>
 						</div>
-						<button class="btn center-block btn-reservar ">Reservar</button>
+						<button class="btn center-block btn-reservar" type="submit" name="btn-reservar">Reservar</button>
+						</form>
 					</div>
 					<!-- end reserva -->
 					<!-- libera -->
@@ -104,13 +107,16 @@ include('reservas.php');
 							<input id="to2" placeholder="Hasta" name="to2">
 							<span class="glyphicon glyphicon-calendar"></span>
 						</div>
-						<button class="btn center-block btn-liberar ">Liberar</button>
+						<button class="btn center-block btn-liberar" type="submit" name="btn-liberar">Liberar</button>
 					</div>
 					<!-- end libera -->
 					';
 				}
 				?>
 			</div>
+
+			<div id="resultado"></div>
+
 		</section>
 		
 		<footer class="navbar-fixed-bottom hidden-xs">
@@ -143,6 +149,7 @@ include('reservas.php');
 			$( "#from" ).datepicker({
 				changeMonth: true,
 				changeYear: true,
+				dateFormat: "yy-mm-dd",
 				numberOfMonths: 1,
 				onClose: function( selectedDate ) {
 					$( "#to" ).datepicker( "option", "minDate", selectedDate );
@@ -151,6 +158,7 @@ include('reservas.php');
 			$( "#to" ).datepicker({
 				changeMonth: true,
 				changeYear: true,
+				dateFormat: "yy-mm-dd",
 				numberOfMonths: 1,
 				onClose: function( selectedDate ) {
 					$( "#from" ).datepicker( "option", "maxDate", selectedDate );
@@ -160,6 +168,7 @@ include('reservas.php');
 			$( "#from2" ).datepicker({
 				changeMonth: true,
 				changeYear: true,
+				dateFormat: "yy-mm-dd",
 				numberOfMonths: 1,
 				onClose: function( selectedDate ) {
 					$( "#to2" ).datepicker( "option", "minDate", selectedDate );
@@ -168,9 +177,23 @@ include('reservas.php');
 			$( "#to2" ).datepicker({
 				changeMonth: true,
 				changeYear: true,
+				dateFormat: "yy-mm-dd",
 				numberOfMonths: 1,
 				onClose: function( selectedDate ) {
 					$( "#from2" ).datepicker( "option", "maxDate", selectedDate );
+				}
+			});
+
+			// dialog
+			//
+			$("#dialog").dialog();
+
+			// consulta AJAX del calendario y fechas cogidas
+			//
+			$.ajax({
+				url: 'actureservas.php'
+				success: function(response){
+					$("#resultado").html(response);
 				}
 			});
 		});
