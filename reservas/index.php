@@ -1,9 +1,9 @@
 <?php
 @session_start();
 include('../loginusuario.php');
-include('reservas.php');
-include('actureservas.php');
+include('reservas.php');	
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -115,8 +115,6 @@ include('actureservas.php');
 				?>
 			</div>
 
-			<div id="resultado"></div>
-
 		</section>
 		
 		<footer class="navbar-fixed-bottom hidden-xs">
@@ -188,14 +186,21 @@ include('actureservas.php');
 			//
 			$("#dialog").dialog();
 
-			// consulta AJAX del calendario y fechas cogidas
+			// ataque ajax a la consultas en actureservas.php
 			//
 			$.ajax({
-				url: 'actureservas.php'
-				success: function(response){
-					$("#resultado").html(response);
-				}
+				url: 'actureservas.php',
+				cache: false
+			})
+			.done(function(response){
+				var divs = response.split("|||");
+				for(var i=0; i<divs.length-1; i++)
+					$("td.fc-day[data-date='"+divs[i]+"']").css("background","red");
 			});
+
+
+
+
 		});
 	</script>
 </body>
