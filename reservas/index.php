@@ -1,7 +1,8 @@
 <?php
 @session_start();
 include('../loginusuario.php');
-include('reservas.php');	
+include('reservas.php');
+include('liberar.php');
 ?>
 
 <!DOCTYPE html>
@@ -98,6 +99,7 @@ include('reservas.php');
 					<!-- end reserva -->
 					<!-- libera -->
 					<div id="libera">
+						<form method="POST" action="">
 						<label>Liberar días:</label>
 						<div class="input-group">
 							<input id="from2" placeholder="Desde" name="from2">
@@ -108,6 +110,7 @@ include('reservas.php');
 							<span class="glyphicon glyphicon-calendar"></span>
 						</div>
 						<button class="btn center-block btn-liberar" type="submit" name="btn-liberar">Liberar</button>
+						</form>
 					</div>
 					<!-- end libera -->
 					';
