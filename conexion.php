@@ -8,12 +8,12 @@
 // función que se conecta a la base de datos
 //
 function conectaDb(){
-	$dbname = 'cRuralCasaRosario';//'db537764102'
-	$user = 'root';//'dbo537764102'
-	$pass = 'chiwy';//'FelipePericote56'
+	$dbname = 'dbName';
+	$user = 'root';
+	$pass = '******';
 
 	try{
-		$db = new PDO("mysql:host=localhost;dbname=".$dbname, $user, $pass);//mysql:host=db537764102.db.1and1.com;
+		$db = new PDO("mysql:host=localhost;dbname=".$dbname, $user, $pass);
 		return($db);
 	}catch(PDOException $e){
 		echo "No se ha podido conectar a la BD";
