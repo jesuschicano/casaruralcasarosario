@@ -7,9 +7,3 @@ Total hours = 20h 30min
 [Visit site](http://casaruralcasarosario.com)
 
 Developed by Jesús Chicano @jesuschicano. 2014.
-
-```php
-<?php
-echo "hola";
->?
-```
