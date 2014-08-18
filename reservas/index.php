@@ -201,7 +201,17 @@ include('liberar.php');
 					$("td.fc-day[data-date='"+divs[i]+"']").css("background","red");
 			});
 
-
+			$( "#calendar span.fc-button" ).click(function(){
+				$.ajax({
+					url: 'actureservas.php',
+					cache: false
+				})
+				.done(function(response){
+					var divs = response.split("|||");
+					for(var i=0; i<divs.length-1; i++)
+						$("td.fc-day[data-date='"+divs[i]+"']").css("background","red");
+				});
+			});
 
 
 		});
