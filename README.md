@@ -1,5 +1,8 @@
-Proyecto para la casa rural de Felipe López (Pericote) localizada en Los Piedros y que promocionará el turismo por el centro de Andalucía y alrededores.
+# Casa Rural "Casa Rosario"
 
-Horas totales = 20h 30min
+*Project to Pericote's rural inn located in Los Piedros and promote tourism in heart of Andalucia.*
+======
 
-Desarrollado por Jesús Chicano @jesuschicano. 2014.
+Total hours = 20h 30min
+
+Developed by Jesús Chicano @jesuschicano. 2014.
